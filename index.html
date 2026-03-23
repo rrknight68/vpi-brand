@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VPI Brand System — Vantage Point Investments</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!--
+  ═══ VPI CSS VARIABLES — COPY-PASTE SNIPPET ═══
+
+  :root {
+    --vpi-navy:       #0D2B4E;
+    --vpi-navy-mid:   #1A3D66;
+    --vpi-gold:       #C89A3A;
+    --vpi-gold-light: #E2B95A;
+    --vpi-gold-dim:   rgba(200,154,58,0.15);
+    --vpi-cream:      #F9F7F3;
+    --vpi-parchment:  #F2EDE3;
+    --vpi-white:      #F0EDE5;
+    --vpi-muted:      #8A95A8;
+    --vpi-deduction:  #5A6478;
+    --vpi-positive:   #1A3D2B;
+    --vpi-teal:       #2BD4B6;
+    --vpi-green:      #34D399;
+  }
+
+  Font stack:
+    Display/headings:  'Cinzel', serif
+    Body/serif:        'Cormorant Garamond', serif
+    Body/sans:         'Jost', sans-serif  (portal)
+                       'DM Sans', sans-serif  (proforma/investor)
+    Numbers/mono:      'DM Mono', monospace
+
+  Logo: 'Cinzel' 400, uppercase
+    "VANTAGE POINT" — letter-spacing 0.18em
+    "INVESTMENTS"  — letter-spacing 0.2em, gold #C89A3A
+    Rules: 28px × 1px, gold, flanking "INVESTMENTS"
+
+-->
+
+<style>
+:root {
+  --vpi-navy:       #0D2B4E;
+  --vpi-navy-mid:   #1A3D66;
+  --vpi-gold:       #C89A3A;
+  --vpi-gold-light: #E2B95A;
+  --vpi-gold-dim:   rgba(200,154,58,0.15);
+  --vpi-cream:      #F9F7F3;
+  --vpi-parchment:  #F2EDE3;
+  --vpi-white:      #F0EDE5;
+  --vpi-muted:      #8A95A8;
+  --vpi-deduction:  #5A6478;
+  --vpi-positive:   #1A3D2B;
+  --vpi-teal:       #2BD4B6;
+  --vpi-green:      #34D399;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background: var(--vpi-cream); color: var(--vpi-navy); font-family: 'Jost', sans-serif; }
+
+.page { max-width: 900px; margin: 0 auto; padding: 60px 40px 80px; }
+
+.page-title {
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--vpi-gold);
+  margin-bottom: 8px;
+}
+
+.page-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 400;
+  color: var(--vpi-navy);
+  margin-bottom: 48px;
+}
+
+.section { margin-bottom: 56px; }
+
+.section-label {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--vpi-gold);
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--vpi-gold);
+}
+
+.gold-rule {
+  height: 1px;
+  background: var(--vpi-gold);
+  border: none;
+  opacity: 0.3;
+  margin: 48px 0;
+}
+
+/* ── Logo ── */
+.logo-row { display: flex; gap: 40px; margin-bottom: 16px; }
+.logo-box {
+  flex: 1;
+  padding: 48px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(200,154,58,0.2);
+}
+.logo-box.light { background: var(--vpi-cream); }
+.logo-box.dark { background: var(--vpi-navy); }
+
+.logo { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.logo-name {
+  font-family: 'Cinzel', serif;
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+.logo-rule-row { display: flex; align-items: center; gap: 6px; }
+.logo-rule { width: 28px; height: 1px; background: var(--vpi-gold); }
+.logo-inv {
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  color: var(--vpi-gold);
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+.logo-caption {
+  font-size: 11px;
+  color: var(--vpi-muted);
+  text-align: center;
+  margin-top: 8px;
+}
+
+/* ── Swatches ── */
+.swatch-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+.swatch-item { display: flex; flex-direction: column; gap: 6px; }
+.swatch-color {
+  width: 100%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+.swatch-name { font-size: 11px; font-weight: 500; color: var(--vpi-navy); }
+.swatch-hex { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--vpi-muted); }
+.swatch-var { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--vpi-deduction); }
+
+/* ── Typography ── */
+.type-specimen {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(200,154,58,0.12);
+}
+.type-meta {
+  width: 160px;
+  flex-shrink: 0;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--vpi-muted);
+  line-height: 1.5;
+}
+.type-sample { flex: 1; color: var(--vpi-navy); }
+
+/* ── Components ── */
+.comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+.stat-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(200,154,58,0.18);
+  padding: 24px;
+}
+.stat-card-label {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--vpi-muted);
+  margin-bottom: 8px;
+}
+.stat-card-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--vpi-navy);
+}
+.stat-card-sub {
+  font-size: 12px;
+  color: var(--vpi-muted);
+  margin-top: 4px;
+}
+
+.nav-tag {
+  display: inline-block;
+  font-family: 'Jost', sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--vpi-gold);
+  background: var(--vpi-gold-dim);
+  padding: 4px 12px;
+}
+
+.dark-card {
+  background: var(--vpi-navy);
+  border: 1px solid rgba(200,154,58,0.18);
+  padding: 24px;
+}
+.dark-card .stat-card-label { color: rgba(200,154,58,0.6); }
+.dark-card .stat-card-value { color: #F0EDE5; }
+.dark-card .stat-card-sub { color: rgba(240,237,229,0.5); }
+
+/* ── Code block ── */
+.code-block {
+  background: var(--vpi-navy);
+  color: var(--vpi-white);
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  line-height: 1.7;
+  padding: 24px;
+  overflow-x: auto;
+  border: 1px solid rgba(200,154,58,0.18);
+}
+.code-block .key { color: var(--vpi-gold); }
+.code-block .val { color: var(--vpi-teal); }
+.code-block .comment { color: var(--vpi-deduction); }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="page-title">Vantage Point Investments</div>
+  <h1 class="page-heading">Brand System Reference</h1>
+
+  <!-- ═══ LOGO ═══ -->
+  <div class="section">
+    <div class="section-label">Primary Logo</div>
+    <div class="logo-row">
+      <div>
+        <div class="logo-box light">
+          <div class="logo">
+            <span class="logo-name" style="color: var(--vpi-navy);">Vantage Point</span>
+            <div class="logo-rule-row">
+              <div class="logo-rule"></div>
+              <span class="logo-inv">Investments</span>
+              <div class="logo-rule"></div>
+            </div>
+          </div>
+        </div>
+        <div class="logo-caption">Light background · Navy wordmark</div>
+      </div>
+      <div>
+        <div class="logo-box dark">
+          <div class="logo">
+            <span class="logo-name" style="color: #FFFFFF;">Vantage Point</span>
+            <div class="logo-rule-row">
+              <div class="logo-rule"></div>
+              <span class="logo-inv">Investments</span>
+              <div class="logo-rule"></div>
+            </div>
+          </div>
+        </div>
+        <div class="logo-caption">Dark background · White wordmark</div>
+      </div>
+    </div>
+    <div style="font-size:12px; color:var(--vpi-muted); margin-top:12px; line-height:1.6;">
+      Font: Cinzel 400 · "VANTAGE POINT" at letter-spacing 0.18em · "INVESTMENTS" at 0.2em in gold #C89A3A<br>
+      Gold rules: 28px &times; 1px flanking the subtitle · Minimum clear space: height of "INVESTMENTS" text on all sides
+    </div>
+  </div>
+
+  <hr class="gold-rule">
+
+  <!-- ═══ COLOR PALETTE ═══ -->
+  <div class="section">
+    <div class="section-label">Color Palette</div>
+    <div class="swatch-grid">
+      <div class="swatch-item">
+        <div class="swatch-color" style="background:#0D2B4E;"></div>
+        <div class="swatch-name">Navy</div>
+        <div class="swatch-hex">#0D2B4E</div>
+        <div class="swatch-var">--vpi-navy</div>
+      </div>
+      <div class="swatch-item">
+        <div class="swatch-color" style="background:#1A3D66;"></div>
+        <div class="swatch-name">Navy Mid</div>
+        <div class="swatch-hex">#1A3D66</div>
+        <div class="swatch-var">--vpi-navy-mid</div>
+      </div>
+      <div class="swatch-item">
+        <div class="swatch-color" style="background:#C89A3A;"></div>
+        <div class="swatch-name">Gold</div>
+        <div class="swatch-hex">#C89A3A</div>
+        <div class="swatch-var">--vpi-gold</div>
+      </div>
+      <div class="swatch-item">
+        <div class="swatch-color" style="background:#E2B95A;"></div>
+        <div class="swatch-name">Gold Light</div>
+        <div class="swatch-hex">#E2B95A</div>
+        <div class="swatch-var">--vpi-gold-light</div>
+      </div>
+      <div class="swatch-item">
+        <div class="swatch-color" style="background:rgba(200,154,58,0.15); border:1px solid rgba(200,154,58,0.3);"></div>
+        <div class="swatch-name">Gold Dim</div>
+        <div class="swatch-hex">rgba(200,154,58,0.15)</div>
+        <div class="swatch-var">--vpi-gold-dim</div>
+      </div>
+      <div class="swatch-item">
+        <div class="swatch-color" style="background:#F9F7F3; border:1px solid #E5E0D8;"></div>
+        <div class="swatch-name">Cream</div>
+        <div class="swatch-hex">#F9F7F3</div>
+        <div class="swatch-var">--vpi-cream</div>
+      </div>
+      <div class="swatch-item">
+        <div class="swatch-color" style="background:#F2EDE3; border:1px solid #E5E0D8;"></div>
+        <div class="swatch-name">Parchment</div>
+        <div class="swatch-hex">#F2EDE3</div>
+        <div class="swatch-var">--vpi-parchment</div>
+      </div>
+      <div class="swatch-item">
+        <div class="swatch-color" style="background:#F0EDE5; border:1px solid #E5E0D8;"></div>
+        <div class="swatch-name">White</div>
+        <div class="swatch-hex">#F0EDE5</div>
+        <div class="swatch-var">--vpi-white</div>
+      </div>
+      <div class="swatch-item">
+        <div class="swatch-color" style="background:#8A95A8;"></div>
+        <div class="swatch-name">Muted</div>
+        <div class="swatch-hex">#8A95A8</div>
+        <div class="swatch-var">--vpi-muted</div>
+      </div>
+      <div class="swatch-item">
+        <div class="swatch-color" style="background:#5A6478;"></div>
+        <div class="swatch-name">Deduction</div>
+        <div class="swatch-hex">#5A6478</div>
+        <div class="swatch-var">--vpi-deduction</div>
+      </div>
+      <div class="swatch-item">
+        <div class="swatch-color" style="background:#1A3D2B;"></div>
+        <div class="swatch-name">Positive</div>
+        <div class="swatch-hex">#1A3D2B</div>
+        <div class="swatch-var">--vpi-positive</div>
+      </div>
+      <div class="swatch-item">
+        <div class="swatch-color" style="background:#2BD4B6;"></div>
+        <div class="swatch-name">Teal</div>
+        <div class="swatch-hex">#2BD4B6</div>
+        <div class="swatch-var">--vpi-teal</div>
+      </div>
+      <div class="swatch-item">
+        <div class="swatch-color" style="background:#34D399;"></div>
+        <div class="swatch-name">Green</div>
+        <div class="swatch-hex">#34D399</div>
+        <div class="swatch-var">--vpi-green</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="gold-rule">
+
+  <!-- ═══ TYPOGRAPHY ═══ -->
+  <div class="section">
+    <div class="section-label">Typography</div>
+
+    <div class="type-specimen">
+      <div class="type-meta">Display / Logo<br>Cinzel 400</div>
+      <div class="type-sample" style="font-family:'Cinzel',serif; font-size:28px; letter-spacing:0.12em;">Vantage Point Investments</div>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-meta">Headings / Serif<br>Cormorant Garamond 600</div>
+      <div class="type-sample" style="font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:600;">Trade Point Industrial</div>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-meta">Body Italic<br>Cormorant Garamond 400i</div>
+      <div class="type-sample" style="font-family:'Cormorant Garamond',serif; font-size:22px; font-style:italic; font-weight:400; color:var(--vpi-deduction);">Institutional capital. Founder-led execution.</div>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-meta">UI / Sans-serif<br>Jost 400</div>
+      <div class="type-sample" style="font-family:'Jost',sans-serif; font-size:16px; font-weight:400;">The executive dashboard uses Jost for all interface text, navigation, and body copy.</div>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-meta">Alt Body<br>DM Sans 400</div>
+      <div class="type-sample" style="font-family:'DM Sans',sans-serif; font-size:15px; font-weight:400; color:var(--vpi-deduction);">Proforma and investor sites use DM Sans for body text and UI elements.</div>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-meta">Numbers / Code<br>DM Mono 400</div>
+      <div class="type-sample" style="font-family:'DM Mono',monospace; font-size:16px;">$34,884,780 &middot; 25.8% IRR &middot; 1.99&times; EM &middot; 98,264 SF</div>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-meta">Section Labels<br>Jost 500</div>
+      <div class="type-sample" style="font-family:'Jost',sans-serif; font-size:10px; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--vpi-gold);">Project Overview &middot; Capital Stack &middot; Investor Returns</div>
+    </div>
+  </div>
+
+  <hr class="gold-rule">
+
+  <!-- ═══ COMPONENTS ═══ -->
+  <div class="section">
+    <div class="section-label">Component Examples</div>
+
+    <div class="comp-grid" style="margin-bottom:20px;">
+      <div class="stat-card">
+        <div class="stat-card-label">Gross Revenue</div>
+        <div class="stat-card-value">$34.88M</div>
+        <div class="stat-card-sub">$355 / SF weighted avg</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-label">Equity IRR</div>
+        <div class="stat-card-value" style="color:var(--vpi-gold);">25.8%</div>
+        <div class="stat-card-sub">Option A &middot; full equity</div>
+      </div>
+    </div>
+
+    <div class="comp-grid" style="margin-bottom:20px;">
+      <div class="dark-card">
+        <div class="stat-card-label">Net Profit</div>
+        <div class="stat-card-value">$11.51M</div>
+        <div class="stat-card-sub">33.0% margin</div>
+      </div>
+      <div class="dark-card">
+        <div class="stat-card-label">Equity Multiple</div>
+        <div class="stat-card-value" style="color:var(--vpi-gold);">2.69&times;</div>
+        <div class="stat-card-sub">Option B equity tranche</div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:20px;">
+      <div style="font-size:11px; color:var(--vpi-muted); margin-bottom:8px;">Section label + gold rule divider</div>
+      <div class="section-label" style="margin-bottom:0;">Capital Stack</div>
+    </div>
+
+    <div style="margin-bottom:20px;">
+      <div style="font-size:11px; color:var(--vpi-muted); margin-bottom:8px;">Navigation tag</div>
+      <span class="nav-tag">Investor Portal</span>
+      <span class="nav-tag" style="margin-left:8px;">Proforma</span>
+      <span class="nav-tag" style="margin-left:8px;">Lender Portal</span>
+    </div>
+
+    <div>
+      <div style="font-size:11px; color:var(--vpi-muted); margin-bottom:8px;">Gold border card (light background)</div>
+      <div style="background:#FFFFFF; border:1px solid rgba(200,154,58,0.18); padding:20px;">
+        <div style="font-family:'Jost',sans-serif; font-size:10px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--vpi-gold); margin-bottom:8px;">Trade Point Industrial</div>
+        <div style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; color:var(--vpi-navy); margin-bottom:6px;">98,264 SF &middot; 38 Units &middot; Cape Coral</div>
+        <div style="font-size:14px; color:var(--vpi-muted);">Flex industrial condo development &middot; SBA 504 owner-occupant exit</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="gold-rule">
+
+  <!-- ═══ CSS VARIABLES ═══ -->
+  <div class="section">
+    <div class="section-label">CSS Variables — Copy &amp; Paste</div>
+    <div class="code-block"><span class="comment">/* VPI Brand Palette */</span>
+<span class="key">--vpi-navy:</span>       <span class="val">#0D2B4E</span>;
+<span class="key">--vpi-navy-mid:</span>   <span class="val">#1A3D66</span>;
+<span class="key">--vpi-gold:</span>       <span class="val">#C89A3A</span>;
+<span class="key">--vpi-gold-light:</span> <span class="val">#E2B95A</span>;
+<span class="key">--vpi-gold-dim:</span>   <span class="val">rgba(200,154,58,0.15)</span>;
+<span class="key">--vpi-cream:</span>      <span class="val">#F9F7F3</span>;
+<span class="key">--vpi-parchment:</span>  <span class="val">#F2EDE3</span>;
+<span class="key">--vpi-white:</span>      <span class="val">#F0EDE5</span>;
+<span class="key">--vpi-muted:</span>      <span class="val">#8A95A8</span>;
+<span class="key">--vpi-deduction:</span>  <span class="val">#5A6478</span>;
+<span class="key">--vpi-positive:</span>   <span class="val">#1A3D2B</span>;
+<span class="key">--vpi-teal:</span>       <span class="val">#2BD4B6</span>;
+<span class="key">--vpi-green:</span>      <span class="val">#34D399</span>;
+
+<span class="comment">/* Font stack */</span>
+<span class="key">font-family:</span> <span class="val">'Cinzel', serif</span>;           <span class="comment">/* display / logo */</span>
+<span class="key">font-family:</span> <span class="val">'Cormorant Garamond', serif</span>; <span class="comment">/* headings */</span>
+<span class="key">font-family:</span> <span class="val">'Jost', sans-serif</span>;          <span class="comment">/* UI / body (portal) */</span>
+<span class="key">font-family:</span> <span class="val">'DM Sans', sans-serif</span>;       <span class="comment">/* body (investor) */</span>
+<span class="key">font-family:</span> <span class="val">'DM Mono', monospace</span>;        <span class="comment">/* numbers */</span>
+
+<span class="comment">/* Gold border standard */</span>
+<span class="key">border:</span> <span class="val">1px solid rgba(200,154,58,0.18)</span>;
+
+<span class="comment">/* Logo markup: Cinzel 400 uppercase */</span>
+<span class="comment">/* "VANTAGE POINT" — letter-spacing: 0.18em */</span>
+<span class="comment">/* "INVESTMENTS"  — letter-spacing: 0.2em, color: #C89A3A */</span>
+<span class="comment">/* Rules: 28px × 1px gold flanking subtitle */</span></div>
+  </div>
+
+  <!-- Footer -->
+  <div style="text-align:center; padding-top:24px; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--vpi-muted);">
+    Vantage Point Investments &middot; Brand System v1.0
+  </div>
+
+</div>
+
+</body>
+</html>
