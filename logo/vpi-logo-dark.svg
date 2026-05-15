@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 200" width="840" height="200">
+  <defs>
+    <style type="text/css"><![CDATA[
+      @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400&display=swap');
+      .name { font-family: 'Cinzel', serif; font-weight: 400; font-size: 58px;
+              letter-spacing: 10.5px; fill: #FFFFFF; }
+      .inv  { font-family: 'Cinzel', serif; font-weight: 400; font-size: 18px;
+              letter-spacing: 3.6px; fill: #C89A3A; }
+    ]]></style>
+  </defs>
+  <!-- VANTAGE POINT — primary wordmark -->
+  <text x="420" y="80" text-anchor="middle" class="name">VANTAGE POINT</text>
+  <!-- Gold rules flanking INVESTMENTS -->
+  <line x1="285" y1="115" x2="345" y2="115" stroke="#C89A3A" stroke-width="1.5"/>
+  <text x="420" y="123" text-anchor="middle" class="inv">INVESTMENTS</text>
+  <line x1="495" y1="115" x2="555" y2="115" stroke="#C89A3A" stroke-width="1.5"/>
+</svg>
